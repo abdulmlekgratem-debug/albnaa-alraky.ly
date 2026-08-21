@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_GOOGLE_SHEET_ID = "1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8"
+  VITE_PRICE_DISPLAY_MODE = "calibration"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -65,9 +65,12 @@ export function normalizeExcelUrl(rawUrlOrId: string): string {
   return trimmed;
 }
 
+// Official Google Sheet ID for production fallback if environment variable is omitted
+const DEFAULT_GOOGLE_SHEET_ID = '1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8';
+
 export const DATA_CONFIG = {
-  // Configured Sheet ID or Raw URL from environment
-  rawGoogleSheetId: (import.meta.env.VITE_GOOGLE_SHEET_ID || '').trim(),
+  // Configured Sheet ID or Raw URL from environment with official fallback
+  rawGoogleSheetId: (import.meta.env.VITE_GOOGLE_SHEET_ID || DEFAULT_GOOGLE_SHEET_ID).trim(),
   rawExcelPublicUrl: (import.meta.env.VITE_EXCEL_PUBLIC_URL || '').trim(),
 
   // Resolved Direct XLSX URL
