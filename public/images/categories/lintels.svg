@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="lintelTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="lintelFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="lintelSide" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <filter id="lintelShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="160" cy="186" rx="125" ry="16" fill="#000" fill-opacity="0.10"/>
+
+  <g filter="url(#lintelShadow)">
+    <!-- Stack of Precast Concrete Lintels (عتبات خرسانية مسبقة الصب) -->
+    <!-- Lintel 1 (Bottom) -->
+    <g transform="translate(30, 95)">
+      <polygon points="0,20 200,0 260,18 60,38" fill="url(#lintelTop)"/>
+      <polygon points="0,20 60,38 60,78 0,60" fill="url(#lintelSide)"/>
+      <polygon points="60,38 260,18 260,58 60,78" fill="url(#lintelFront)"/>
+    </g>
+
+    <!-- Lintel 2 (Middle) -->
+    <g transform="translate(45, 65)">
+      <polygon points="0,20 200,0 260,18 60,38" fill="url(#lintelTop)"/>
+      <polygon points="0,20 60,38 60,78 0,60" fill="url(#lintelSide)"/>
+      <polygon points="60,38 260,18 260,58 60,78" fill="url(#lintelFront)"/>
+    </g>
+
+    <!-- Lintel 3 (Top with Rebar core exposure at end) -->
+    <g transform="translate(60, 35)">
+      <polygon points="0,20 200,0 260,18 60,38" fill="url(#lintelTop)"/>
+      <polygon points="0,20 60,38 60,78 0,60" fill="url(#lintelSide)"/>
+      <polygon points="60,38 260,18 260,58 60,78" fill="url(#lintelFront)"/>
+
+      <!-- Rebar exposure dots on left face -->
+      <circle cx="20" cy="45" r="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1"/>
+      <circle cx="42" cy="52" r="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1"/>
+      <circle cx="18" cy="62" r="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1"/>
+      <circle cx="40" cy="69" r="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="steelShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="50%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="wireCoil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="nailShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="160" cy="186" rx="115" ry="14" fill="#000" fill-opacity="0.09"/>
+
+  <g filter="url(#nailShadow)">
+    <!-- Steel Wire Tie Coil (سلك رباط حديد) -->
+    <g transform="translate(130, 45)">
+      <!-- Multiple Torus Circles -->
+      <ellipse cx="75" cy="70" rx="65" ry="50" fill="none" stroke="url(#wireCoil)" stroke-width="18"/>
+      <ellipse cx="75" cy="70" rx="65" ry="50" fill="none" stroke="#475569" stroke-width="6" stroke-dasharray="8 4"/>
+      <ellipse cx="75" cy="70" rx="45" ry="32" fill="#F4F6F9"/>
+      <!-- Binding cross ties -->
+      <rect x="70" y="16" width="10" height="25" rx="2" fill="#1E293B"/>
+      <rect x="70" y="98" width="10" height="25" rx="2" fill="#1E293B"/>
+      <rect x="6" y="65" width="25" height="10" rx="2" fill="#1E293B"/>
+      <rect x="118" y="65" width="25" height="10" rx="2" fill="#1E293B"/>
+    </g>
+
+    <!-- Group of Nails (مسامير خشب وصلب) -->
+    <g transform="translate(45, 60)">
+      <!-- Nail 1 (Large 10/12 cm) -->
+      <g transform="rotate(-35 60 70)">
+        <polygon points="50,15 70,15 67,22 53,22" fill="#CBD5E1" stroke="#334155" stroke-width="1"/>
+        <rect x="57" y="22" width="6" height="105" rx="1" fill="url(#steelShine)"/>
+        <polygon points="57,127 63,127 60,138" fill="#475569"/>
+      </g>
+
+      <!-- Nail 2 -->
+      <g transform="translate(15, 20) rotate(-20 60 70)">
+        <polygon points="50,15 70,15 67,22 53,22" fill="#CBD5E1" stroke="#334155" stroke-width="1"/>
+        <rect x="57" y="22" width="6" height="95" rx="1" fill="url(#steelShine)"/>
+        <polygon points="57,117 63,117 60,128" fill="#475569"/>
+      </g>
+
+      <!-- Nail 3 -->
+      <g transform="translate(-15, 35) rotate(-50 60 70)">
+        <polygon points="50,15 70,15 67,22 53,22" fill="#CBD5E1" stroke="#334155" stroke-width="1"/>
+        <rect x="57" y="22" width="5.5" height="85" rx="1" fill="url(#steelShine)"/>
+        <polygon points="57,107 62.5,107 60,118" fill="#475569"/>
+      </g>
+    </g>
+  </g>
+</svg>

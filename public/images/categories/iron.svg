@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="rebarSteel1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A5568"/>
+      <stop offset="30%" stop-color="#718096"/>
+      <stop offset="60%" stop-color="#2D3748"/>
+      <stop offset="100%" stop-color="#1A202C"/>
+    </linearGradient>
+    <linearGradient id="rebarSteel2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="40%" stop-color="#64748B"/>
+      <stop offset="80%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="rebarEnd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="rebarShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Warm Background -->
+
+  <!-- Shadow below bars -->
+  <ellipse cx="160" cy="180" rx="120" ry="18" fill="#000" fill-opacity="0.08"/>
+
+  <!-- Group of Rebar Bars in realistic bundle angle -->
+  <g filter="url(#rebarShadow)">
+    <!-- Back Row Bars -->
+    <g transform="translate(30, 45) rotate(-18 130 60)">
+      <!-- Bar 1 -->
+      <rect x="10" y="20" width="240" height="14" rx="3" fill="url(#rebarSteel2)"/>
+      <ellipse cx="250" cy="27" rx="5" ry="7" fill="url(#rebarEnd)"/>
+      <!-- Ribs -->
+      <path d="M40 20L48 34 M65 20L73 34 M90 20L98 34 M115 20L123 34 M140 20L148 34 M165 20L173 34 M190 20L198 34 M215 20L223 34" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round"/>
+
+      <!-- Bar 2 -->
+      <rect x="25" y="38" width="235" height="14" rx="3" fill="url(#rebarSteel1)"/>
+      <ellipse cx="260" cy="45" rx="5" ry="7" fill="url(#rebarEnd)"/>
+      <path d="M55 38L63 52 M80 38L88 52 M105 38L113 52 M130 38L138 52 M155 38L163 52 M180 38L188 52 M205 38L213 52 M230 38L238 52" stroke="#CBD5E1" stroke-width="1.8" stroke-linecap="round"/>
+
+      <!-- Bar 3 (Center Foreground) -->
+      <rect x="0" y="56" width="250" height="16" rx="3" fill="url(#rebarSteel2)"/>
+      <ellipse cx="250" cy="64" rx="6" ry="8" fill="url(#rebarEnd)"/>
+      <path d="M30 56L40 72 M55 56L65 72 M80 56L90 72 M105 56L115 72 M130 56L140 72 M155 56L165 72 M180 56L190 72 M205 56L215 72 M230 56L240 72" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round"/>
+
+      <!-- Bar 4 (Lower Foreground) -->
+      <rect x="15" y="76" width="240" height="16" rx="3" fill="url(#rebarSteel1)"/>
+      <ellipse cx="255" cy="84" rx="6" ry="8" fill="url(#rebarEnd)"/>
+      <path d="M45 76L55 92 M70 76L80 92 M95 76L105 92 M120 76L130 92 M145 76L155 92 M170 76L180 92 M195 76L205 92 M220 76L230 92" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Bar 5 -->
+      <rect x="35" y="96" width="220" height="15" rx="3" fill="url(#rebarSteel2)"/>
+      <ellipse cx="255" cy="103" rx="5" ry="7.5" fill="url(#rebarEnd)"/>
+      <path d="M65 96L75 111 M90 96L100 111 M115 96L125 111 M140 96L150 111 M165 96L175 111 M190 96L200 111 M215 96L225 111" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round"/>
+
+      <!-- Steel binding strap around rebar bundle -->
+      <path d="M100 16 C105 16, 115 115, 112 115 C108 115, 98 16, 100 16 Z" fill="#3B82F6" fill-opacity="0.8" stroke="#1D4ED8" stroke-width="1.5"/>
+      <path d="M185 16 C190 16, 200 115, 197 115 C193 115, 183 16, 185 16 Z" fill="#3B82F6" fill-opacity="0.8" stroke="#1D4ED8" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

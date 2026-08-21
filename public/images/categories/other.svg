@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <filter id="otherShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="160" cy="186" rx="115" ry="14" fill="#000" fill-opacity="0.09"/>
+
+  <g filter="url(#otherShadow)" transform="translate(60, 45)">
+    <!-- Timber Beam / Pallet -->
+    <polygon points="0,50 120,0 200,30 80,80" fill="url(#woodGrad)"/>
+    <polygon points="0,50 80,80 80,105 0,75" fill="#78350F"/>
+    <polygon points="80,80 200,30 200,55 80,105" fill="#B45309"/>
+
+    <!-- Steel Trowel / Building tool placed on beam -->
+    <g transform="translate(45, 10) rotate(-15 60 40)">
+      <polygon points="20,40 90,20 105,45 35,65" fill="url(#metalGrad)" stroke="#E2E8F0" stroke-width="1"/>
+      <!-- Trowel handle -->
+      <path d="M60 40 L60 20 L40 20" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round"/>
+      <rect x="25" y="14" width="22" height="12" rx="4" fill="#E11D48"/>
+    </g>
+  </g>
+</svg>

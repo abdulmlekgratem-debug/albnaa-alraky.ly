@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="kraftBag1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D7CCC8"/>
+      <stop offset="40%" stop-color="#BCAAA4"/>
+      <stop offset="100%" stop-color="#8D6E63"/>
+    </linearGradient>
+    <linearGradient id="kraftBag2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFEBE9"/>
+      <stop offset="40%" stop-color="#D7CCC8"/>
+      <stop offset="100%" stop-color="#A1887F"/>
+    </linearGradient>
+    <linearGradient id="cementBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#153D7A"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <filter id="bagShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#3E2723" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="160" cy="188" rx="115" ry="14" fill="#000" fill-opacity="0.09"/>
+
+  <g filter="url(#bagShadow)">
+    <!-- Back Bag (Slightly tilted) -->
+    <g transform="translate(60, 32) rotate(-8 60 70)">
+      <rect x="0" y="0" width="115" height="145" rx="10" fill="url(#kraftBag1)"/>
+      <rect x="0" y="35" width="115" height="40" fill="#78909C"/>
+      <rect x="15" y="47" width="85" height="16" rx="3" fill="#37474F"/>
+      <!-- Valve top fold -->
+      <path d="M0 0 C30 8, 85 8, 115 0 L115 12 C85 18, 30 18, 0 12 Z" fill="#8D6E63"/>
+    </g>
+
+    <!-- Main Front Cement Bag -->
+    <g transform="translate(130, 42)">
+      <!-- Main body with pillow contours -->
+      <path d="M12 0 C5 0, 0 8, 0 16 L0 130 C0 140, 8 148, 18 148 L112 148 C122 148, 130 140, 130 130 L130 16 C130 8, 125 0, 118 0 Z" fill="url(#kraftBag2)"/>
+      
+      <!-- Top stitched seal -->
+      <path d="M0 12 C35 18, 95 18, 130 12 L130 0 C95 6, 35 6, 0 0 Z" fill="#BCAAA4"/>
+      <line x1="10" y1="6" x2="120" y2="6" stroke="#4E342E" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+      <!-- Center Brand Label Band -->
+      <rect x="0" y="42" width="130" height="48" fill="url(#cementBlue)"/>
+      <rect x="12" y="52" width="106" height="6" rx="2" fill="#60A5FA"/>
+      <rect x="25" y="64" width="80" height="14" rx="2" fill="#FFFFFF"/>
+      <text x="65" y="75" font-family="sans-serif" font-size="10" font-weight="900" fill="#153D7A" text-anchor="middle">PORTLAND</text>
+
+      <!-- Grade & Weight badge -->
+      <circle cx="28" cy="115" r="14" fill="#153D7A"/>
+      <text x="28" y="119" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">42.5</text>
+      
+      <rect x="52" y="106" width="62" height="18" rx="4" fill="#EFEBE9" stroke="#BCAAA4" stroke-width="1"/>
+      <text x="83" y="119" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4E342E" text-anchor="middle">50 KG</text>
+
+      <!-- Bottom stitched seal -->
+      <line x1="10" y1="142" x2="120" y2="142" stroke="#4E342E" stroke-width="1.5" stroke-dasharray="3 3"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { BRAND } from '../../lib/constants';
+
+interface BrandLogoProps {
+  compact?: boolean;
+  showTagline?: boolean;
+  className?: string;
+  theme?: 'light' | 'dark';
+}
+
+export const BrandLogo: React.FC<BrandLogoProps> = ({
+  compact = false,
+  showTagline = true,
+  className = '',
+  theme = 'light',
+}) => {
+  const isDark = theme === 'dark';
+
+  return (
+    <Link
+      to="/"
+      aria-label="الصفحة الرئيسية - شركة البناء الراقي الجديد"
+      className={`group flex items-center gap-2.5 transition-opacity active:opacity-85 sm:gap-3 ${className}`}
+    >
+      <img
+        src="/images/brand/al-binaa-al-raqi-mark.png"
+        alt=""
+        width="56"
+        height="56"
+        className={`h-11 w-11 flex-shrink-0 object-contain sm:h-14 sm:w-14 ${
+          isDark ? 'brightness-0 invert' : ''
+        }`}
+      />
+
+      <div className={`flex min-w-0 flex-col justify-center border-r pr-2.5 sm:pr-3 ${
+        isDark ? 'border-white/25' : 'border-surface-300'
+      }`}>
+        <span className={`truncate font-extrabold text-[13px] leading-tight tracking-tight transition-colors min-[390px]:text-sm sm:text-lg ${
+          isDark ? 'text-white' : 'text-surface-900 group-hover:text-brand-navy'
+        }`}>
+          {compact ? BRAND.shortName : BRAND.name}
+        </span>
+        {showTagline && (
+          <span className={`mt-1 hidden truncate text-[10px] font-medium leading-none tracking-tight min-[390px]:block sm:text-[11px] ${
+            isDark ? 'text-surface-300' : 'text-surface-500'
+          }`}>
+            {BRAND.tagline}
+          </span>
+        )}
+      </div>
+    </Link>
+  );
+};

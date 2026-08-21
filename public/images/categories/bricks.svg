@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F6F9"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <!-- Terracotta Red Clay -->
+    <linearGradient id="brickClayTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E06D53"/>
+      <stop offset="100%" stop-color="#C85237"/>
+    </linearGradient>
+    <linearGradient id="brickClaySide" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8442A"/>
+      <stop offset="100%" stop-color="#8C2F1C"/>
+    </linearGradient>
+    <linearGradient id="brickClayFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D9583B"/>
+      <stop offset="100%" stop-color="#A83920"/>
+    </linearGradient>
+
+    <!-- Concrete Gray Block -->
+    <linearGradient id="concreteTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="concreteFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="concreteSide" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <filter id="brickShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#7C2D12" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="160" cy="186" rx="118" ry="16" fill="#000" fill-opacity="0.10"/>
+
+  <g filter="url(#brickShadow)">
+    <!-- Back Concrete Block (Gray) -->
+    <g transform="translate(145, 45)">
+      <!-- Isometric Concrete Block -->
+      <polygon points="0,35 60,0 135,28 75,63" fill="url(#concreteTop)"/>
+      <polygon points="0,35 75,63 75,118 0,90" fill="url(#concreteFront)"/>
+      <polygon points="75,63 135,28 135,83 75,118" fill="url(#concreteSide)"/>
+
+      <!-- Concrete block hollow voids -->
+      <polygon points="25,32 50,18 68,26 43,40" fill="#334155"/>
+      <polygon points="65,47 90,33 108,41 83,55" fill="#334155"/>
+    </g>
+
+    <!-- Front Terracotta Red Clay Brick (ياجور بناء أحمر مع ثقوب) -->
+    <g transform="translate(45, 75)">
+      <!-- Isometric Top Face -->
+      <polygon points="0,35 70,0 150,30 80,65" fill="url(#brickClayTop)"/>
+      <!-- Isometric Front Face -->
+      <polygon points="0,35 80,65 80,120 0,90" fill="url(#brickClayFront)"/>
+      <!-- Isometric Side Face -->
+      <polygon points="80,65 150,30 150,85 80,120" fill="url(#brickClaySide)"/>
+
+      <!-- Hollow Brick Holes (6 core holes) on top face -->
+      <g fill="#4A180E">
+        <polygon points="20,33 42,23 54,28 32,38"/>
+        <polygon points="40,41 62,31 74,36 52,46"/>
+        <polygon points="60,49 82,39 94,44 72,54"/>
+
+        <polygon points="56,22 78,12 90,17 68,27"/>
+        <polygon points="76,30 98,20 110,25 88,35"/>
+        <polygon points="96,38 118,28 130,33 108,43"/>
+      </g>
+
+      <!-- Side Grip Grooves -->
+      <line x1="86" y1="75" x2="144" y2="44" stroke="#682112" stroke-width="2"/>
+      <line x1="86" y1="92" x2="144" y2="61" stroke="#682112" stroke-width="2"/>
+      <line x1="86" y1="108" x2="144" y2="77" stroke="#682112" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
