@@ -9,6 +9,8 @@ import { SharePriceDialog } from './SharePriceDialog';
 interface PriceActionsProps {
   product: ProductDTO;
   compact?: boolean;
+  iconOnly?: boolean;
+  fill?: boolean;
   className?: string;
 }
 
@@ -33,6 +35,8 @@ async function copyText(text: string): Promise<void> {
 export const PriceActions: React.FC<PriceActionsProps> = ({
   product,
   compact = false,
+  iconOnly = false,
+  fill = false,
   className = '',
 }) => {
   const selectedCity = useOptionalProducts()?.selectedCity || BRAND.city;
@@ -73,24 +77,34 @@ export const PriceActions: React.FC<PriceActionsProps> = ({
 
   return (
     <>
-      <div className={`flex items-center gap-2 ${className}`} aria-label={`إجراءات سعر ${product.name}`}>
+      <div className={`flex items-center gap-2 ${fill ? 'w-full' : ''} ${className}`} aria-label={`إجراءات سعر ${product.name}`}>
         <button
           type="button"
           onClick={handleCopy}
-          className={`inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg border border-surface-300 bg-white px-3 text-sm font-extrabold text-brand-navy transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy ${compact ? 'min-w-[66px]' : 'min-w-[78px]'}`}
+          className={`inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg border border-surface-300 bg-white text-sm font-extrabold text-brand-navy transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy ${
+            iconOnly
+              ? 'h-11 w-11 px-0'
+              : `px-3 ${fill ? 'min-w-0 flex-1' : compact ? 'min-w-[66px]' : 'min-w-[78px]'}`
+          }`}
           aria-label={`نسخ سعر ${product.name}`}
+          title="نسخ السعر"
         >
           {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-          <span>{copied ? 'تم' : 'نسخ'}</span>
+          <span className={iconOnly ? 'sr-only' : ''}>{copied ? 'تم' : 'نسخ'}</span>
         </button>
         <button
           type="button"
           onClick={handleShare}
-          className={`inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg bg-brand-navy px-3 text-sm font-extrabold text-white transition-colors hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${compact ? 'min-w-[78px]' : 'min-w-[88px]'}`}
+          className={`inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg bg-brand-navy text-sm font-extrabold text-white transition-colors hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${
+            iconOnly
+              ? 'h-11 w-11 px-0'
+              : `px-3 ${fill ? 'min-w-0 flex-1' : compact ? 'min-w-[78px]' : 'min-w-[88px]'}`
+          }`}
           aria-label={`مشاركة سعر ${product.name}`}
+          title="مشاركة السعر"
         >
           <Share2 className="h-4 w-4" aria-hidden="true" />
-          <span>مشاركة</span>
+          <span className={iconOnly ? 'sr-only' : ''}>مشاركة</span>
         </button>
       </div>
 

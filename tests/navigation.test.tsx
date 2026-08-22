@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { ProductProvider } from '../src/context/ProductContext';
 import { HomePage } from '../src/pages/HomePage';
@@ -54,6 +54,15 @@ describe('Full Application Navigation & Page Rendering', () => {
     const cityGroup = screen.getByRole('radiogroup', { name: 'اختر مدينة الأسعار' });
     expect(cityGroup.className).toContain('grid-cols-2');
     expect(cityGroup.className).not.toContain('overflow-x-auto');
+    expect(await screen.findByRole('link', { name: 'اتصال المقر الرئيسي – زليتن على 0912172710' })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: 'واتساب فرع طرابلس على 0922011104' })).toHaveAttribute(
+      'href',
+      'https://wa.me/218922011104',
+    );
+    const socialSection = screen.getByRole('region', { name: 'تابع صفحاتنا' });
+    expect(within(socialSection).queryByRole('link', { name: 'المواد' })).not.toBeInTheDocument();
+    expect(within(socialSection).queryByRole('link', { name: 'الأسعار' })).not.toBeInTheDocument();
+    expect(within(socialSection).queryByRole('link', { name: 'البحث' })).not.toBeInTheDocument();
   });
 
   it('filters from the homepage and resets to all materials when the customer searches', async () => {

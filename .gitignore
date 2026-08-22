@@ -7,10 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Diagnostic / workspace artifacts
+# Diagnostic / workspace artifacts / export outputs
 .artifact-work/
 outputs/
+output/
 screenshots/
+حملة*/
 
 # Dependencies & build
 node_modules/

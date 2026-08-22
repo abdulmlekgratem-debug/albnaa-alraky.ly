@@ -1,11 +1,13 @@
 import React from 'react';
 import { BRAND } from '../../lib/constants';
+import { formatUnit } from '../../lib/formatters';
 
 interface PriceDisplayProps {
   price: number | null | undefined;
   unit?: string | null;
   available?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  stackUnit?: boolean;
   className?: string;
 }
 
@@ -14,6 +16,7 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({
   unit,
   available = true,
   size = 'md',
+  stackUnit = false,
   className = '',
 }) => {
   const isPriceValid = available && price !== null && price !== undefined && price > 0;
@@ -42,6 +45,26 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({
   const rawUnit = (unit || '').trim();
   const hasUnit = rawUnit.length > 0 && rawUnit !== 'غير محددة';
   const cleanUnit = hasUnit ? (rawUnit.startsWith('/') ? rawUnit : `/ ${rawUnit}`) : '';
+
+  if (size === 'lg' && stackUnit) {
+    return (
+      <div className={`min-w-0 text-start ${className}`}>
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+          <span className="tabular-nums text-3xl font-black tracking-tight text-brand-navy sm:text-4xl">
+            {formattedNumber}
+          </span>
+          <span className="text-base font-black text-surface-800 sm:text-lg">
+            {BRAND.currency}
+          </span>
+        </div>
+        {hasUnit && (
+          <span className="mt-0.5 block text-sm font-bold text-surface-700 sm:text-base">
+            {formatUnit(rawUnit)}
+          </span>
+        )}
+      </div>
+    );
+  }
 
   if (size === 'lg') {
     return (

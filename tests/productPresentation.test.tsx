@@ -58,6 +58,25 @@ describe('Product price presentation', () => {
     expect(screen.queryByText('غير محددة')).not.toBeInTheDocument();
   });
 
+  it('uses the compact catalog-card hierarchy with image, unit and real update time', () => {
+    render(
+      <MemoryRouter>
+        <ProductRow product={{ ...baseProduct, unit: 'كيس', updatedAt: 'اليوم 09:30 صباحًا' }} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('للكيس')).toBeInTheDocument();
+    expect(screen.getByLabelText('آخر تحديث: اليوم 09:30 صباحًا')).toBeInTheDocument();
+    const imageContainer = screen.getByRole('img', { name: baseProduct.name }).parentElement;
+    const productCard = screen.getByRole('listitem');
+    expect(imageContainer).toHaveClass('min-h-[196px]');
+    expect(imageContainer).toHaveClass('rounded-none');
+    expect(imageContainer).toHaveClass('border-r-0');
+    expect(productCard.firstElementChild?.firstElementChild).toBe(imageContainer);
+    expect(screen.getByRole('button', { name: `نسخ سعر ${baseProduct.name}` })).toHaveTextContent('نسخ');
+    expect(screen.getByRole('button', { name: `مشاركة سعر ${baseProduct.name}` })).toHaveTextContent('مشاركة');
+  });
+
   it('does not render unavailable products in customer-facing lists', () => {
     const { container } = render(
       <MemoryRouter>

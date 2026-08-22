@@ -1,6 +1,8 @@
 import React from 'react';
+import { Clock3 } from 'lucide-react';
 import { ProductDTO } from '../../types/product';
 import { getProductSubtitle } from '../../lib/productPresentation';
+import { formatArabicDate } from '../../lib/formatters';
 import { PriceDisplay } from './PriceDisplay';
 import { ProductImage } from './ProductImage';
 import { PriceActions } from './PriceActions';
@@ -28,33 +30,47 @@ export const ProductRow: React.FC<ProductRowProps> = ({
   }
 
   return (
-    <div role="listitem" className={`px-3.5 py-4 sm:px-5 sm:py-5 ${className}`}>
-      <div className="grid grid-cols-[112px_minmax(0,1fr)] items-start gap-x-4 text-right sm:grid-cols-[128px_minmax(0,1fr)] md:gap-x-5">
-        <ProductImage
-          product={product}
-          size="sm"
-          className="col-start-1 row-start-1"
-        />
+    <div role="listitem" className={`overflow-hidden ${className}`}>
+      <div className="flex min-h-[196px] items-stretch text-right sm:min-h-[204px]">
+        <ProductImage product={product} size="row" className="self-stretch flex-none" />
 
-        <div className="col-start-2 row-start-1 min-w-0">
-          <h3 className="break-words text-lg font-black leading-7 text-surface-900 sm:text-xl sm:leading-8">
-            {product.name}
-          </h3>
-          {subtitle && (
-            <p className="mt-1.5 break-words text-[15px] font-semibold leading-6 text-surface-600 sm:text-base">
-              {subtitle}
-            </p>
-          )}
-        </div>
+        <div className="flex min-w-0 flex-1 flex-col p-3 sm:p-4">
+          <div className="min-w-0">
+            <h3 className="line-clamp-2 break-words text-lg font-black leading-8 text-surface-900 sm:text-xl sm:leading-9">
+              {product.name}
+            </h3>
+            {subtitle && (
+              <p className="mt-0.5 line-clamp-1 break-words text-sm font-semibold leading-5 text-surface-600 sm:text-[15px]">
+                {subtitle}
+              </p>
+            )}
+          </div>
 
-        <div className="col-span-2 col-start-1 mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-surface-200 pt-3.5">
           <PriceDisplay
             price={product.price}
             unit={product.unit}
             available={product.available}
-            size="md"
+            size="lg"
+            stackUnit
+            className="mt-2.5"
           />
-          <PriceActions product={product} compact />
+
+          {product.updatedAt && (
+            <p
+              className="mt-1.5 flex min-w-0 items-center gap-1.5 text-xs font-semibold leading-5 text-surface-500"
+              aria-label={`آخر تحديث: ${formatArabicDate(product.updatedAt)}`}
+            >
+              <Clock3 className="h-3.5 w-3.5 flex-none" aria-hidden="true" />
+              <span className="break-words">آخر تحديث: {formatArabicDate(product.updatedAt)}</span>
+            </p>
+          )}
+
+          <PriceActions
+            product={product}
+            compact
+            fill
+            className="mt-auto border-t border-surface-200 pt-2"
+          />
         </div>
       </div>
     </div>

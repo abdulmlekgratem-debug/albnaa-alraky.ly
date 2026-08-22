@@ -8,16 +8,52 @@ export const BRAND = {
   tagline: 'لتجارة حديد التسليح ومواد البناء',
   city: 'طرابلس',
   country: 'ليبيا',
-  fullLocation: 'طرابلس – ليبيا',
+  fullLocation: 'المقر الرئيسي: زليتن – ليبيا',
   currency: 'د.ل',
   hours: 'يوميًا: 08:00 ص – 06:00 م (ما عدا الجمعة)',
   priceNote: 'الأسعار شاملة التوصيل أو الاستلام من المخازن حسب الاتفاق',
 };
 
-// Temporary demo data requested for visual testing. Replace before launch.
 export const CONTACT = {
-  isTemporary: true,
-  phones: ['+218 91 234 5678', '+218 92 345 6789'],
+  isTemporary: false,
+  branches: [
+    {
+      name: 'فرع طرابلس',
+      phones: [
+        { number: '0912011104' },
+        { number: '0913141104' },
+        { number: '0922011104', whatsapp: true },
+      ],
+    },
+    {
+      name: 'المقر الرئيسي – زليتن',
+      phones: [
+        { number: '0912172710' },
+        { number: '0912141104' },
+      ],
+    },
+    {
+      name: 'فرع صرمان',
+      phones: [
+        { number: '0912171104' },
+        { number: '0942171104' },
+      ],
+    },
+    {
+      name: 'فرع صبراتة',
+      phones: [
+        { number: '0919093784' },
+        { number: '0922937636' },
+      ],
+    },
+    {
+      name: 'فرع الجميل',
+      phones: [
+        { number: '0913222556' },
+        { number: '0913832929' },
+      ],
+    },
+  ],
   socialLinks: [
     { label: 'فيسبوك', url: 'https://www.facebook.com/' },
     { label: 'إنستغرام', url: 'https://www.instagram.com/' },

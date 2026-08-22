@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 border-b border-surface-200/80 bg-white/90 shadow-header backdrop-blur-xl">
-      <div className="mx-auto grid h-[76px] max-w-[1240px] grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2.5 px-3 sm:h-24 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:gap-3 sm:px-6 lg:px-8">
+      <div className="mx-auto grid h-[84px] max-w-[1240px] grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2.5 px-3 sm:h-24 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:gap-3 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
           {showBack && (
             <button
@@ -65,21 +65,21 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/"
             aria-label="الصفحة الرئيسية - شركة البناء الراقي الجديد"
-            className="flex min-w-0 items-center gap-1.5 sm:hidden"
+            className="flex min-w-0 items-center gap-2 sm:hidden"
           >
             <img
               src="/images/brand/al-binaa-al-raqi-mark.png"
               alt=""
-              width="44"
-              height="44"
-              className="h-11 w-11 flex-shrink-0 object-contain"
+              width="56"
+              height="56"
+              className="h-14 w-14 flex-shrink-0 object-contain"
             />
-            <span className="max-w-[90px] truncate border-r border-surface-300 pr-1.5 text-[11px] font-black leading-4 text-brand-950 min-[390px]:max-w-[126px] min-[390px]:text-xs">
+            <span className="max-w-[104px] border-r border-surface-300 pr-2 text-[13px] font-black leading-5 text-brand-950 min-[390px]:max-w-[132px] min-[390px]:text-sm">
               {BRAND.shortName}
             </span>
           </Link>
           <div className="hidden sm:block">
-            <BrandLogo compact={false} showTagline={!title} />
+            <BrandLogo compact={false} showTagline={!title} prominent />
           </div>
           {title && (
             <h1 className="sr-only">
@@ -89,26 +89,24 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         <div
-          className="flex min-w-[74px] flex-col items-center justify-center rounded-xl border border-surface-200 bg-surface-50 px-1.5 py-1.5 text-center max-[359px]:hidden sm:hidden"
+          className="flex min-w-[88px] items-center justify-center gap-1.5 rounded-2xl border border-surface-200 bg-surface-50 px-2 py-2 text-right shadow-subtle max-[379px]:hidden sm:hidden"
           aria-label={`التاريخ والوقت: ${mobileDateLabel}، ${timeLabel}`}
         >
-          <span className="whitespace-nowrap text-[11px] font-bold leading-4 text-surface-600">
-            {mobileDateLabel}
-          </span>
-          <span dir="ltr" className="flex items-center gap-1 whitespace-nowrap text-xs font-black leading-4 text-brand-navy tabular-nums">
-            <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-            {timeLabel}
+          <CalendarDays className="h-5 w-5 flex-none text-brand-navy" aria-hidden="true" />
+          <span className="flex flex-col">
+            <span className="whitespace-nowrap text-[11px] font-bold leading-4 text-surface-600">{mobileDateLabel}</span>
+            <span dir="ltr" className="whitespace-nowrap text-xs font-black leading-4 text-brand-navy tabular-nums">{timeLabel}</span>
           </span>
         </div>
 
-        <div className="hidden items-center justify-center gap-4 rounded-2xl border border-surface-200 bg-surface-50 px-5 py-2.5 text-surface-700 sm:flex" aria-label={`التاريخ والوقت: ${dateLabel}، ${timeLabel}`}>
+        <div className="hidden items-center justify-center gap-4 rounded-2xl border border-surface-200 bg-white/90 px-5 py-3 text-surface-700 shadow-subtle sm:flex" aria-label={`التاريخ والوقت: ${dateLabel}، ${timeLabel}`}>
           <span className="flex items-center gap-2 whitespace-nowrap text-sm font-bold">
-            <CalendarDays className="h-4.5 w-4.5 text-brand-navy" aria-hidden="true" />
+            <CalendarDays className="h-5 w-5 text-brand-navy" aria-hidden="true" />
             {dateLabel}
           </span>
           <span className="h-5 w-px bg-surface-300" aria-hidden="true" />
           <span dir="ltr" className="flex items-center gap-2 whitespace-nowrap text-sm font-black text-brand-navy">
-            <Clock3 className="h-4.5 w-4.5" aria-hidden="true" />
+            <Clock3 className="h-5 w-5" aria-hidden="true" />
             {timeLabel}
           </span>
         </div>

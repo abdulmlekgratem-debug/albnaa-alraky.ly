@@ -7,6 +7,7 @@ interface BrandLogoProps {
   showTagline?: boolean;
   className?: string;
   theme?: 'light' | 'dark';
+  prominent?: boolean;
 }
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
@@ -14,6 +15,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   showTagline = true,
   className = '',
   theme = 'light',
+  prominent = false,
 }) => {
   const isDark = theme === 'dark';
 
@@ -28,7 +30,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         alt=""
         width="56"
         height="56"
-        className={`h-11 w-11 flex-shrink-0 object-contain sm:h-14 sm:w-14 ${
+        className={`${prominent ? 'h-14 w-14 sm:h-[68px] sm:w-[68px]' : 'h-11 w-11 sm:h-14 sm:w-14'} flex-shrink-0 object-contain ${
           isDark ? 'brightness-0 invert' : ''
         }`}
       />
@@ -36,13 +38,13 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <div className={`flex min-w-0 flex-col justify-center border-r pr-2.5 sm:pr-3 ${
         isDark ? 'border-white/25' : 'border-surface-300'
       }`}>
-        <span className={`truncate font-extrabold text-[13px] leading-tight tracking-tight transition-colors min-[390px]:text-sm sm:text-lg ${
+        <span className={`truncate font-extrabold leading-tight transition-colors ${prominent ? 'text-base sm:text-xl' : 'text-[13px] min-[390px]:text-sm sm:text-lg'} ${
           isDark ? 'text-white' : 'text-surface-900 group-hover:text-brand-navy'
         }`}>
           {compact ? BRAND.shortName : BRAND.name}
         </span>
         {showTagline && (
-          <span className={`mt-1 hidden truncate text-[10px] font-medium leading-none tracking-tight min-[390px]:block sm:text-[11px] ${
+          <span className={`mt-1 hidden truncate font-medium leading-none min-[390px]:block ${prominent ? 'text-[11px] sm:text-xs' : 'text-[10px] sm:text-[11px]'} ${
             isDark ? 'text-surface-300' : 'text-surface-500'
           }`}>
             {BRAND.tagline}

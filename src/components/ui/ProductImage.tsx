@@ -4,7 +4,7 @@ import { ProductDTO } from '../../types/product';
 
 interface ProductImageProps {
   product: ProductDTO;
-  size?: 'sm' | 'md' | 'lg' | 'hero';
+  size?: 'sm' | 'md' | 'lg' | 'row' | 'hero';
   className?: string;
   loading?: 'lazy' | 'eager';
 }
@@ -23,6 +23,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
     sm: 'h-28 w-28 rounded-2xl p-1 sm:h-32 sm:w-32',
     md: 'w-14 h-14 sm:w-16 sm:h-16 rounded-xl p-1.5',
     lg: 'w-24 h-24 sm:w-28 sm:h-28 rounded-2xl p-2',
+    row: 'h-auto min-h-[196px] w-[128px] rounded-none border-y-0 border-r-0 p-0 min-[390px]:w-[140px] sm:min-h-[204px] sm:w-[172px]',
     hero: 'w-full h-44 sm:h-56 rounded-2xl p-4',
   };
 

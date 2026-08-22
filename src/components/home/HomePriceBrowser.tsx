@@ -207,7 +207,7 @@ export const HomePriceBrowser: React.FC<HomePriceBrowserProps> = ({
           <header className="border-b border-surface-200 bg-sand-50 px-4 py-4 sm:px-6 sm:py-5">
             <div>
               <span className="text-sm font-extrabold text-sand-700">الوصول السريع للأسعار</span>
-              <h2 className="mt-1 text-2xl font-black tracking-tight text-brand-950 sm:text-3xl">
+                <h2 className="mt-1 text-2xl font-black leading-snug text-brand-950 sm:text-3xl">
                 اختر المدينة، ثم المادة أو ابحث مباشرة
               </h2>
             </div>

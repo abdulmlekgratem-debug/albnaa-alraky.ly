@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Clock3, MapPin, Phone } from 'lucide-react';
+import { Clock3, MapPin } from 'lucide-react';
 import { Header } from '../components/layout/Header';
-import { BrandLogo } from '../components/ui/BrandLogo';
+import { Footer } from '../components/layout/Footer';
 import { LoadingSkeleton } from '../components/states/LoadingSkeleton';
 import { ErrorState } from '../components/states/ErrorState';
 import { useProducts } from '../context/ProductContext';
-import { BRAND, CONTACT } from '../lib/constants';
+import { BRAND } from '../lib/constants';
 import { formatArabicDate } from '../lib/formatters';
 import { HERO_IMAGE } from '../lib/categoryAssets';
-import { SocialBrandIcon } from '../components/ui/SocialBrandIcon';
 import { HomePriceBrowser } from '../components/home/HomePriceBrowser';
 
 export const HomePage: React.FC = () => {
@@ -69,7 +67,7 @@ export const HomePage: React.FC = () => {
                 <span>{BRAND.name} — أسعار {selectedCity}</span>
               </div>
 
-              <h1 className="mt-3 text-[28px] font-black leading-[1.18] tracking-tight sm:mt-5 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 text-[28px] font-black leading-[1.25] sm:mt-5 sm:text-5xl lg:text-6xl">
                 <span className="block">أسعار مواد البناء اليوم</span>
                 <span className="mt-1 block text-sand-300">في {selectedCity}</span>
               </h1>
@@ -97,83 +95,7 @@ export const HomePage: React.FC = () => {
           onCitySelect={setSelectedCity}
         />
 
-        <footer id="contact" className="relative overflow-hidden border-t-4 border-sand-400 bg-brand-950 text-white">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-brand-900/45 to-transparent" aria-hidden="true" />
-
-          <div className="relative mx-auto max-w-[1240px] px-4 py-8 sm:px-6 sm:py-11 lg:px-8 lg:py-12">
-            <div className="grid gap-9 lg:grid-cols-[1.15fr_0.95fr_0.8fr] lg:gap-12">
-              <section aria-label="معلومات الشركة">
-                <BrandLogo theme="dark" showTagline className="w-fit" />
-                <p className="mt-5 max-w-md text-base font-medium leading-7 text-white/75">
-                  أسعار مواد البناء المتاحة حسب المدينة، مع وصول سريع إلى الصنف والسعر ووسائل التواصل.
-                </p>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-white/70">
-                  <span className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-sand-300" aria-hidden="true" />
-                    {BRAND.fullLocation}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Clock3 className="h-4 w-4 text-sand-300" aria-hidden="true" />
-                    {BRAND.hours}
-                  </span>
-                </div>
-              </section>
-
-              <section aria-labelledby="footer-contact-title">
-                <span className="text-sm font-extrabold text-sand-300">خدمة العملاء</span>
-                <h2 id="footer-contact-title" className="mt-1.5 text-2xl font-black">اتصل بنا مباشرة</h2>
-                <div className="mt-4 grid gap-2.5">
-                  {CONTACT.phones.map((phone) => (
-                    <a
-                      key={phone}
-                      href={`tel:${phone.replace(/\s/g, '')}`}
-                      className="group flex min-h-[58px] items-center justify-between gap-3 rounded-xl border border-white/15 bg-white/[0.07] px-3.5 transition-colors hover:border-emerald-400/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-300"
-                    >
-                      <span className="flex items-center gap-3">
-                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500 text-white">
-                          <Phone className="h-5 w-5" aria-hidden="true" />
-                        </span>
-                        <span className="text-sm font-extrabold text-white/80">اتصال مباشر</span>
-                      </span>
-                      <span dir="ltr" className="text-base font-black tabular-nums text-white sm:text-lg">{phone}</span>
-                    </a>
-                  ))}
-                </div>
-              </section>
-
-              <section aria-labelledby="footer-social-title">
-                <span className="text-sm font-extrabold text-sand-300">نحن على التواصل</span>
-                <h2 id="footer-social-title" className="mt-1.5 text-2xl font-black">تابع صفحاتنا</h2>
-                <div className="mt-4 flex gap-3">
-                  {CONTACT.socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={social.label}
-                      title={social.label}
-                      className="rounded-xl transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-300 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-950"
-                    >
-                      <SocialBrandIcon label={social.label} className="h-12 w-12" />
-                    </a>
-                  ))}
-                </div>
-
-                <nav aria-label="روابط الفوتر" className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-white/75">
-                  <Link to="/materials" className="inline-flex min-h-[44px] items-center transition-colors hover:text-white">المواد</Link>
-                  <Link to="/prices" className="inline-flex min-h-[44px] items-center transition-colors hover:text-white">الأسعار</Link>
-                  <Link to="/search" className="inline-flex min-h-[44px] items-center transition-colors hover:text-white">البحث</Link>
-                </nav>
-              </section>
-            </div>
-
-            <div className="mt-9 flex flex-col gap-2 border-t border-white/10 pt-5 text-center text-xs font-semibold leading-6 text-white/55 sm:flex-row sm:items-center sm:justify-between sm:text-right">
-              <span>© {new Date().getFullYear()} {BRAND.name}. جميع الحقوق محفوظة.</span>
-              <span>جميع الأسعار المعروضة هي آخر الأسعار المعتمدة والمحدثة في المنصة.</span>
-            </div>
-          </div>
-        </footer>
+        <Footer id="contact" />
       </main>
     </div>
   );

@@ -6,12 +6,24 @@
   html {
     direction: rtl;
     text-align: right;
-    font-family: 'Cairo', 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+    font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', sans-serif;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-surface-50 text-surface-900 overflow-x-hidden;
+    word-spacing: 0.04em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    word-spacing: 0.065em;
+  }
+
+  .tabular-nums {
+    word-spacing: normal;
   }
 
   ::selection {

@@ -46,7 +46,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['IBM Plex Sans Arabic', 'Cairo', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Cairo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
       },
       boxShadow: {
         'subtle': '0 2px 8px -4px rgba(12, 30, 53, 0.16)',
