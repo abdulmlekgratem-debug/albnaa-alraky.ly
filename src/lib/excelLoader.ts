@@ -102,9 +102,7 @@ export async function loadProducts(bypassCache = false): Promise<LoadProductsRes
   // Local snapshot data is reserved for deterministic automated tests only.
   if (!targetUrl || !targetUrl.startsWith('http')) {
     throw new Error(
-      isProd
-        ? 'لم يتم ضبط رابط Google Sheets / Excel السحابي في بيئة الإنتاج. تعذر عرض الأسعار.'
-        : 'لم يتم ضبط مصدر Google Sheets المباشر. البيانات المحلية معطلة.'
+      'المنظومة قيد الصيانة وتحديث قائمة الأسعار حاليًا لمطابقة ومراجعة الأسعار المعتمدة، وسنعود للعمل قريبًا.'
     );
   }
 
@@ -124,7 +122,7 @@ export async function loadProducts(bypassCache = false): Promise<LoadProductsRes
     const products = parseExcelWorkbook(workbook, DATA_CONFIG.sheetName);
 
     if (products.length === 0) {
-      throw new Error('لم يتم العثور على أي أصناف فعالة داخل جدول الأسعار.');
+      throw new Error('جاري مراجعة وتحديث أصناف وقائمة الأسعار حاليًا، يرجى المحاولة بعد قليل.');
     }
 
     return {
@@ -134,13 +132,13 @@ export async function loadProducts(bypassCache = false): Promise<LoadProductsRes
       sourceUrl: targetUrl,
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : 'خطأ غير متوقع أثناء قراءة ملف الأسعار';
+    const message = error instanceof Error ? error.message : 'خطأ أثناء قراءة ملف الأسعار';
     console.error('[ExcelLoader Error]:', message);
 
-    // Production: Fail-closed, never show outdated fake snapshot
+    // Production: Fail-closed, friendly maintenance message
     if (isProd) {
       throw new Error(
-        'تعذر تحميل الأسعار الحالية من Google Sheets. تحقق من الاتصال وحاول مرة أخرى.'
+        'المنظومة قيد التحديث والصيانة الدورية حاليًا لمطابقة الأسعار المعتمدة، يرجى إعادة المحاولة بعد قليل.'
       );
     }
 

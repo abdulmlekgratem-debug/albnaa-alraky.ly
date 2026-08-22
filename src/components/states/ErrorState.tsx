@@ -1,7 +1,8 @@
 import React from 'react';
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import { AlertTriangle, RefreshCw } from 'lucide-react';
 
 interface ErrorStateProps {
+  title?: string;
   message?: string;
   onRetry?: () => void;
   isRetrying?: boolean;
@@ -9,35 +10,41 @@ interface ErrorStateProps {
 }
 
 export const ErrorState: React.FC<ErrorStateProps> = ({
-  message = 'تعذر تحميل الأسعار. تحقق من الاتصال وحاول مرة أخرى.',
+  title = 'تحديث وصيانة دورية للأسعار',
+  message = 'المنظومة قيد الصيانة وتحديث قائمة الأسعار حاليًا، وسنعود للعمل قريبًا فور اكتمال المراجعة.',
   onRetry,
   isRetrying = false,
   className = '',
 }) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center text-center p-6 sm:p-8 bg-white rounded-2xl border border-red-100 shadow-sm ${className}`}
+      className={`mx-auto max-w-lg flex flex-col items-center justify-center text-center p-6 sm:p-9 bg-white rounded-3xl border-2 border-amber-200 shadow-premium ${className}`}
     >
-      <div className="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4">
-        <AlertCircle className="w-8 h-8" />
+      {/* Yellow / Amber Warning Badge */}
+      <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center mb-4 shadow-sm">
+        <AlertTriangle className="w-9 h-9" strokeWidth={2.2} />
       </div>
 
-      <h2 className="text-lg sm:text-xl font-bold text-surface-900 mb-2">
-        تعذر تحميل الأسعار
+      {/* Main Title */}
+      <h2 className="text-xl sm:text-2xl font-black text-surface-900 mb-2">
+        {title}
       </h2>
 
-      <p className="text-sm text-surface-600 max-w-sm mb-6 leading-relaxed">
+      {/* Reassurance Message */}
+      <p className="text-sm sm:text-base font-medium text-surface-600 max-w-md mb-6 leading-relaxed">
         {message}
       </p>
 
+      {/* Retry Button */}
       {onRetry && (
         <button
+          type="button"
           onClick={onRetry}
           disabled={isRetrying}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-navy hover:bg-brand-900 text-white font-bold text-sm sm:text-base shadow-sm transition-all active:scale-95 disabled:opacity-50 min-h-[48px] min-w-[160px]"
+          className="inline-flex min-h-[48px] min-w-[170px] items-center justify-center gap-2 rounded-xl bg-brand-navy px-6 py-3 text-sm font-extrabold text-white shadow-md transition-all hover:bg-brand-900 active:scale-95 disabled:opacity-60"
         >
           <RefreshCw className={`w-4 h-4 ${isRetrying ? 'animate-spin' : ''}`} />
-          <span>{isRetrying ? 'جارٍ التحميل...' : 'إعادة المحاولة'}</span>
+          <span>{isRetrying ? 'جارٍ التحقق...' : 'إعادة المحاولة'}</span>
         </button>
       )}
     </div>
