@@ -160,6 +160,7 @@ describe('Full Application Navigation & Page Rendering', () => {
     // P020: حديد تسليح 12 ملي مصراتة (Price: 3,950 د.ل)
     const productNames = await screen.findAllByText('حديد تسليح 12 ملي مصراتة');
     expect(productNames.length).toBeGreaterThan(0);
+    expect(await screen.findByLabelText('رقم الصنف: P020')).toBeInTheDocument();
     expect(await screen.findByText('3,950')).toBeInTheDocument();
     fireEvent.click(await screen.findByRole('button', { name: 'مشاركة السعر والرابط' }));
     expect(await screen.findByRole('dialog', { name: 'مشاركة السعر' })).toBeInTheDocument();
@@ -185,6 +186,7 @@ describe('Full Application Navigation & Page Rendering', () => {
 
     expect(await screen.findByRole('heading', { name: 'الأسعار حسب المدينة' })).toBeInTheDocument();
     expect(await screen.findByText('كل المواد')).toBeInTheDocument();
+    expect(await screen.findByRole('columnheader', { name: 'رقم الصنف' })).toBeInTheDocument();
     expect(await screen.findByRole('columnheader', { name: 'التصنيف' })).toBeInTheDocument();
     expect(await screen.findByRole('columnheader', { name: 'المادة' })).toBeInTheDocument();
     expect(await screen.findByRole('columnheader', { name: 'النوع' })).toBeInTheDocument();

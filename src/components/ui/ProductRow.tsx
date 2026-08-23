@@ -6,6 +6,7 @@ import { formatArabicDate } from '../../lib/formatters';
 import { PriceDisplay } from './PriceDisplay';
 import { ProductImage } from './ProductImage';
 import { PriceActions } from './PriceActions';
+import { ProductIdBadge } from './ProductIdBadge';
 
 export interface ProductRowProps {
   product: ProductDTO;
@@ -36,6 +37,7 @@ export const ProductRow: React.FC<ProductRowProps> = ({
 
         <div className="flex min-w-0 flex-1 flex-col p-3 sm:p-4">
           <div className="min-w-0">
+            <ProductIdBadge productId={product.id} className="mb-1.5" />
             <h3 className="line-clamp-2 break-words text-lg font-black leading-8 text-surface-900 sm:text-xl sm:leading-9">
               {product.name}
             </h3>

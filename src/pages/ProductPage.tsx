@@ -16,6 +16,7 @@ import { formatArabicDate } from '../lib/formatters';
 import { PRICE_DISPLAY_CONFIG } from '../config/priceDisplay';
 import { BrowseProgress } from '../components/navigation/BrowseProgress';
 import { CitySelector } from '../components/ui/CitySelector';
+import { ProductIdBadge } from '../components/ui/ProductIdBadge';
 
 interface ProductNavigationState {
   browseFrom?: string;
@@ -140,10 +141,13 @@ export const ProductPage: React.FC = () => {
             {/* Title, Specs & Price Block */}
             <div className="order-1 space-y-5 md:order-2 md:col-span-7">
               <div className="space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="inline-block px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-navy text-xs font-bold">
-                    {product.category}
-                  </span>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-block rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-bold text-brand-navy">
+                      {product.category}
+                    </span>
+                    <ProductIdBadge productId={product.id} />
+                  </div>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-surface-500">
                     <MapPin className="w-3.5 h-3.5 text-brand-navy" />
                     <span>{selectedCity} – {BRAND.country}</span>

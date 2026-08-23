@@ -4,6 +4,7 @@ import { cleanUnitName } from '../../lib/formatters';
 import { getProductSubtitle } from '../../lib/productPresentation';
 import { PriceDisplay } from './PriceDisplay';
 import { PriceActions } from './PriceActions';
+import { ProductIdBadge } from './ProductIdBadge';
 
 interface ProductCatalogTableProps {
   products: ProductDTO[];
@@ -27,6 +28,7 @@ export const ProductCatalogTable: React.FC<ProductCatalogTableProps> = ({
       <table className="w-full border-collapse text-right" aria-label={ariaLabel}>
         <thead className="bg-brand-950 text-white">
           <tr>
+            <th scope="col" className="border-l border-white/10 px-3 py-3.5 text-sm font-extrabold">رقم الصنف</th>
             <th scope="col" className="border-l border-white/10 px-3 py-3.5 text-sm font-extrabold">التصنيف</th>
             <th scope="col" className="border-l border-white/10 px-3 py-3.5 text-sm font-extrabold">المادة</th>
             {showType && <th scope="col" className="border-l border-white/10 px-3 py-3.5 text-sm font-extrabold">النوع</th>}
@@ -40,6 +42,7 @@ export const ProductCatalogTable: React.FC<ProductCatalogTableProps> = ({
         <tbody className="divide-y divide-surface-200">
           {products.map((product) => (
             <tr key={product.id} className="transition-colors hover:bg-sand-50/70">
+              <td dir="ltr" className="px-3 py-3.5 text-[13px] font-black tabular-nums text-brand-navy">{product.id}</td>
               <td className="px-3 py-3.5 text-[13px] font-bold text-surface-600">{product.category}</td>
               <td className="px-3 py-3.5 text-[15px] font-extrabold leading-6 text-brand-950">{product.name}</td>
               {showType && <td className="px-3 py-3.5 text-[13px] font-semibold text-surface-700">{cleanValue(product.type)}</td>}
@@ -77,6 +80,7 @@ export const ProductCatalogTable: React.FC<ProductCatalogTableProps> = ({
           >
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0 flex-1">
+                <ProductIdBadge productId={product.id} className="mb-1.5" />
                 <h3 className="text-[15px] font-extrabold leading-6 text-brand-950">{product.name}</h3>
                 {metadata && (
                   <p className="mt-1 break-words text-xs font-semibold leading-5 text-surface-500">{metadata}</p>

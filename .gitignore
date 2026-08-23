@@ -13,6 +13,7 @@ outputs/
 output/
 screenshots/
 حملة*/
+/*.png
 
 # Dependencies & build
 node_modules/

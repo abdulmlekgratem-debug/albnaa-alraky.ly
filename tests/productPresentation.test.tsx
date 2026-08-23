@@ -66,6 +66,7 @@ describe('Product price presentation', () => {
     );
 
     expect(screen.getByText('للكيس')).toBeInTheDocument();
+    expect(screen.getByLabelText(`رقم الصنف: ${baseProduct.id}`)).toBeInTheDocument();
     expect(screen.getByLabelText('آخر تحديث: اليوم 09:30 صباحًا')).toBeInTheDocument();
     const imageContainer = screen.getByRole('img', { name: baseProduct.name }).parentElement;
     const productCard = screen.getByRole('listitem');
