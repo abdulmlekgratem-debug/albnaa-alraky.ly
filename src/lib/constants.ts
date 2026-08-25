@@ -55,9 +55,8 @@ export const CONTACT = {
     },
   ],
   socialLinks: [
-    { label: 'فيسبوك', url: 'https://www.facebook.com/' },
-    { label: 'إنستغرام', url: 'https://www.instagram.com/' },
-    { label: 'تيك توك', url: 'https://www.tiktok.com/' },
+    { label: 'فيسبوك', url: 'https://www.facebook.com/alraqy.aljaded' },
+    { label: 'تيك توك', url: 'https://www.tiktok.com/@albnaa.alraky' },
   ],
 };
 

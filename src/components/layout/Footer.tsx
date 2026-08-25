@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ id }) => (
             </p>
           </div>
 
-          <div className="mt-5 grid grid-cols-3 gap-2" aria-label="صفحات التواصل الاجتماعي">
+          <div className="mt-5 grid grid-cols-2 gap-3" aria-label="صفحات التواصل الاجتماعي">
             {CONTACT.socialLinks.map((social) => (
               <a
                 key={social.label}
