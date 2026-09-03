@@ -280,4 +280,15 @@ describe('Excel Parser & Normalizer', () => {
       رابط_الصورة: 'لا يوجد رابط',
     })?.imageUrl).toBeNull();
   });
+
+  it('faithfully preserves the exact row order from the Excel sheet', () => {
+    const rawRows: RawExcelRow[] = [
+      { id: 'ROW_3', التصنيف: 'الحديد', اسم_العرض: 'حديد ثالث', الترتيب: 99, الوحدة: 'طن', طرابلس: 3000, متوفر: 'نعم', فعال: 'نعم' },
+      { id: 'ROW_1', التصنيف: 'الأسمنت', اسم_العرض: 'أسمنت أول', الترتيب: 5, الوحدة: 'كيس', طرابلس: 28, متوفر: 'نعم', فعال: 'نعم' },
+      { id: 'ROW_2', التصنيف: 'الياجور', اسم_العرض: 'ياجور ثانٍ', الترتيب: 1, الوحدة: 'ألف', طرابلس: 1500, متوفر: 'نعم', فعال: 'نعم' },
+    ];
+
+    const products = parseRawRowsToProducts(rawRows);
+    expect(products.map((p) => p.id)).toEqual(['ROW_3', 'ROW_1', 'ROW_2']);
+  });
 });

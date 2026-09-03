@@ -106,11 +106,7 @@ export function extractIronSizes(ironProducts: ProductDTO[]): string[] {
     }
   }
 
-  return Array.from(sizeSet).sort((a, b) => {
-    const numA = parseFloat(a.replace(/[^\d.]/g, '')) || 0;
-    const numB = parseFloat(b.replace(/[^\d.]/g, '')) || 0;
-    return numA - numB;
-  });
+  return Array.from(sizeSet);
 }
 
 /**

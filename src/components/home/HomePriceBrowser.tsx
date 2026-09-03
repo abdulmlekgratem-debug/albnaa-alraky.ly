@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import { getSearchSuggestions, searchProducts } from '../../lib/arabicSearch';
 import { getCategoryAsset } from '../../lib/categoryAssets';
-import { TOP_CATEGORIES } from '../../lib/constants';
 import { CategorySummary, CitySummary, ProductDTO } from '../../types/product';
 import { ProductRow } from '../ui/ProductRow';
 
@@ -74,14 +73,7 @@ export const HomePriceBrowser: React.FC<HomePriceBrowserProps> = ({
   const [filtersOpen, setFiltersOpen] = useState(false);
   const resultsRef = useRef<HTMLElement>(null);
 
-  const orderedCategories = useMemo(() => {
-    const priority = TOP_CATEGORIES.flatMap((name) => {
-      const category = categories.find((item) => item.name === name);
-      return category ? [category] : [];
-    });
-    const rest = categories.filter((item) => !TOP_CATEGORIES.includes(item.name));
-    return [...priority, ...rest];
-  }, [categories]);
+  const orderedCategories = categories;
 
   const categoryPreviews = useMemo<CategoryPreview[]>(() => {
     return orderedCategories.map((category) => {
@@ -116,7 +108,7 @@ export const HomePriceBrowser: React.FC<HomePriceBrowserProps> = ({
         productsForCategory
           .map((product) => product[definition.key]?.trim())
           .filter((value): value is string => Boolean(value)),
-      )).sort((left, right) => left.localeCompare(right, 'ar', { numeric: true }));
+      ));
 
       return values.length >= 2 ? [{ ...definition, values }] : [];
     });

@@ -156,7 +156,8 @@ function isRowActive(row: RawExcelRow): boolean {
  */
 export function parseRawRowWithAudit(
   row: RawExcelRow,
-  seenIds?: Set<string>
+  seenIds?: Set<string>,
+  rowIndex = 0,
 ): { product: ProductDTO | null; warning?: string } {
   if (!row || typeof row !== 'object') {
     return { product: null, warning: 'Invalid row object' };
@@ -248,8 +249,8 @@ export function parseRawRowWithAudit(
     finalAvailable = false;
   }
 
-  // Sort order
-  let sortOrder = 999;
+  // Sort order: default faithfully to the natural row index in Excel
+  let sortOrder = rowIndex + 1;
   if (normalizedRow.الترتيب !== undefined && normalizedRow.الترتيب !== null) {
     const parsedOrder = parseInt(String(normalizedRow.الترتيب), 10);
     if (!isNaN(parsedOrder)) {
@@ -311,13 +312,14 @@ export function parseRawRowToProduct(row: RawExcelRow, seenIds?: Set<string>): P
 
 /**
  * Parse an array of Raw Excel rows into clean ProductDTOs
+ * Faithfully preserves the exact order of rows as they appear in the Excel sheet
  */
 export function parseRawRowsToProducts(rows: RawExcelRow[]): ProductDTO[] {
   const products: ProductDTO[] = [];
   const seenIds = new Set<string>();
 
-  for (const row of rows) {
-    const { product, warning } = parseRawRowWithAudit(row, seenIds);
+  for (let i = 0; i < rows.length; i++) {
+    const { product, warning } = parseRawRowWithAudit(rows[i], seenIds, i);
     if (warning && process.env.NODE_ENV !== 'production') {
       console.warn('[Data Integrity Warning]:', warning);
     }
@@ -326,8 +328,8 @@ export function parseRawRowsToProducts(rows: RawExcelRow[]): ProductDTO[] {
     }
   }
 
-  // Sort by sortOrder ascending
-  return products.sort((a, b) => a.sortOrder - b.sortOrder);
+  // Faithfully preserve the exact row order of the Excel spreadsheet
+  return products;
 }
 
 /**
