@@ -65,8 +65,8 @@ export function normalizeExcelUrl(rawUrlOrId: string): string {
   return trimmed;
 }
 
-// Official Google Sheet ID for production fallback if environment variable is omitted
-const DEFAULT_GOOGLE_SHEET_ID = '1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8';
+// Official Google Sheet URL for production fallback if environment variable is omitted
+const DEFAULT_GOOGLE_SHEET_ID = 'https://docs.google.com/spreadsheets/d/1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8/edit?gid=1362371690#gid=1362371690';
 
 export const DATA_CONFIG = {
   // Configured Sheet ID or Raw URL from environment with official fallback

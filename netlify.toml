@@ -4,8 +4,14 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  VITE_GOOGLE_SHEET_ID = "1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8"
+  VITE_GOOGLE_SHEET_ID = "https://docs.google.com/spreadsheets/d/1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8/edit?gid=1362371690#gid=1362371690"
   VITE_PRICE_DISPLAY_MODE = "calibration"
+
+[[redirects]]
+  from = "/api/excel"
+  to = "https://docs.google.com/spreadsheets/d/1NYpSUjzWoJXgO5hG4LMq8RkdoAxZNbIX99UnLiurno8/export?format=xlsx&gid=1362371690"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"

@@ -76,7 +76,7 @@ export const HomePage: React.FC = () => {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-white/20 pt-3 text-[11px] font-bold text-white/75 sm:mt-6 sm:gap-x-6 sm:gap-y-2 sm:pt-4 sm:text-xs">
-                <span>{products.length} صنفًا متاحًا</span>
+                <span>{products.length} صنفًا</span>
                 <span>{categories.length} أقسام</span>
                 <span className="flex items-center gap-1.5">
                   <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />

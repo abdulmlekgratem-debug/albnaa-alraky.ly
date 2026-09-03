@@ -73,7 +73,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const products = useMemo(
     () => sourceProducts
       .map((product) => applyCityPriceToProduct(product, selectedCity))
-      .filter((product) => product.available && product.price !== null && product.price > 0),
+      .filter((product) => product.price !== null && product.price > 0),
     [sourceProducts, selectedCity],
   );
 
