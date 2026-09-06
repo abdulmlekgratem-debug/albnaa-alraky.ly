@@ -11,16 +11,16 @@ export interface RawExcelRow {
   اسم_العرض?: string | null;
   الاسم_الأصلي?: string | null;
   النوع?: string | null;
-  المقاس?: string | null;
-  الطول?: string | null;
+  المقاس?: string | number | null;
+  الطول?: string | number | null;
   المصنع_او_المصدر?: string | null;
   المنشأ?: string | null;
-  العبوة?: string | null;
+  العبوة?: string | number | null;
   الوحدة: string;
   سعر_اليوم?: string | number | null;
-  متوفر: string; // "نعم" | "لا"
-  فعال?: string | null;  // "نعم" | "لا"; omitted in the simplified public schema
-  آخر_تحديث?: string | null;
+  متوفر: string | boolean; // "نعم" | "لا" | true | false
+  فعال?: string | boolean | null;  // "نعم" | "لا"; omitted in the simplified public schema
+  آخر_تحديث?: string | number | null;
   كلمات_البحث?: string | null;
   يحتاج_مراجعة?: string | null;
   ملاحظات?: string | null;
@@ -34,7 +34,7 @@ export interface RawExcelRow {
   المادة?: string | null;
   المصنع?: string | null;
   طرابلس?: string | number | null;
-  'آخر تحديث'?: string | null;
+  'آخر تحديث'?: string | number | null;
 }
 
 /**
