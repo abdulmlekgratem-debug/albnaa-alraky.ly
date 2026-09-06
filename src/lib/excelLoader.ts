@@ -95,6 +95,28 @@ export async function loadProducts(bypassCache = false): Promise<LoadProductsRes
     };
   }
 
+  // 1. Check MySQL Database API first (/api/products.php)
+  if (typeof window !== 'undefined') {
+    try {
+      const dbResponse = await fetch(`/api/products.php${bypassCache ? `?ts=${Date.now()}` : ''}`, {
+        method: 'GET',
+      });
+      if (dbResponse.ok) {
+        const data = await dbResponse.json();
+        if (data && Array.isArray(data.products) && data.products.length > 0) {
+          return {
+            products: data.products,
+            isFromSnapshot: false,
+            timestamp: new Date().toISOString(),
+            sourceUrl: '/api/products.php',
+          };
+        }
+      }
+    } catch {
+      // Database API not reachable or not yet configured; gracefully fall through to remote spreadsheet
+    }
+  }
+
   const targetUrl = DATA_CONFIG.getResolvedUrl();
   const isProd = DATA_CONFIG.isProduction();
 

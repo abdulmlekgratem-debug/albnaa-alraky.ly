@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Clock3, MapPin, PhoneCall } from 'lucide-react';
 import { BRAND, CONTACT } from '../../lib/constants';
 import { BrandLogo } from '../ui/BrandLogo';
@@ -88,7 +89,16 @@ export const Footer: React.FC<FooterProps> = ({ id }) => (
 
       <div className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-5 text-center text-xs font-semibold leading-6 text-white/60 sm:flex-row sm:items-center sm:justify-between sm:text-right">
         <span>© {new Date().getFullYear()} {BRAND.name}. جميع الحقوق محفوظة.</span>
-        <span>جميع الأسعار المعروضة هي آخر الأسعار المعتمدة والمحدثة في المنصة.</span>
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-end">
+          <span>جميع الأسعار المعروضة هي آخر الأسعار المعتمدة والمحدثة في المنصة.</span>
+          <Link
+            to="/admin/login"
+            className="text-white/40 hover:text-white transition underline-offset-4 hover:underline"
+            title="لوحة تحكم المسؤولين"
+          >
+            لوحة الإدارة
+          </Link>
+        </div>
       </div>
     </div>
   </footer>

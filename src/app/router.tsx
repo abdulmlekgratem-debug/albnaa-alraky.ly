@@ -6,8 +6,18 @@ import { CategoryPage } from '../pages/CategoryPage';
 import { ProductPage } from '../pages/ProductPage';
 import { SearchPage } from '../pages/SearchPage';
 import { AllPricesPage } from '../pages/AllPricesPage';
+import { AdminLoginPage } from '../pages/admin/AdminLoginPage';
+import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage';
 
 export const router = createBrowserRouter([
+  {
+    path: '/admin/login',
+    element: <AdminLoginPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminDashboardPage />,
+  },
   {
     path: '/',
     element: <Layout />,
